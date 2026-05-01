@@ -16,23 +16,6 @@ li {
   margin: 8px 0;
 }
 
-/* パスワード画面 */
-#loginBox {
-  text-align: center;
-  margin-top: 100px;
-}
-
-#errorMsg {
-  color: red;
-  margin-top: 10px;
-}
-
-
-
-
-
-
-
 /*注意事項*/
 .notice {
   font-size: 12px;
