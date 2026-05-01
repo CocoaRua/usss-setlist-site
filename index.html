@@ -10,6 +10,7 @@
 
 <body>
 
+
 <p class="notice">
 ・本サイトは浦島坂田船の過去ライブセトリを個人で整理した非公式検索ページです。<br>
 ・公式サイトとは一切関係ありません。<br>
@@ -17,16 +18,24 @@
 ・状況により、予告なく公開を停止する場合があります。
 </p>
 
-<!-- ログイン画面 -->
+
+<!-- パスワード画面（現在OFF）
 <div id="loginBox">
   <h2>パスワードを入力してください</h2>
   <input type="password" id="passwordInput" placeholder="Password">
-  <button id="loginBtn">入室する</button>
+  <button onclick="checkPassword()">入室する</button>
   <p id="errorMsg"></p>
 </div>
+-->
 
-<!-- メインサイト -->
-<div id="mainSite" style="display:none;">
+
+
+
+
+
+
+
+<div id="mainSite">
   <h1>浦島坂田船 セトリ検索</h1>
 
   <input id="searchBox" placeholder="曲名を入力">
@@ -37,7 +46,39 @@
   <ul id="result"></ul>
 </div>
 
+
+
+
+
+<!-- パスワード機能（現在OFF）
+<script>
+function checkPassword() {
+  const pass = document.getElementById("passwordInput").value;
+
+  if (pass === "USSS0907") {
+    document.getElementById("loginBox").style.display = "none";
+    document.getElementById("mainSite").style.display = "block";
+  } else {
+    document.getElementById("errorMsg").textContent = "パスワードが違います";
+  }
+}
+</script>
+-->
+
+
+
+
+
+
+
+
+
 <script src="script.js"></script>
 
 </body>
+</html>
+
+
+
+
 </html>
