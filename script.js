@@ -1,35 +1,5 @@
 const data = [];
 
-const PASSWORD = "USSS0907";
-
-window.addEventListener("DOMContentLoaded", () => {
-
-  const loginBox = document.getElementById("loginBox");
-  const mainSite = document.getElementById("mainSite");
-  const input = document.getElementById("passwordInput");
-  const error = document.getElementById("errorMsg");
-  const btn = document.getElementById("loginBtn");
-
-  loginBox.style.display = "block";
-  mainSite.style.display = "none";
-
-  btn.addEventListener("click", () => {
-    if (input.value === PASSWORD) {
-      loginBox.style.display = "none";
-      mainSite.style.display = "block";
-    } else {
-      error.textContent = "パスワードが違います";
-    }
-  });
-
-  input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      btn.click();
-    }
-  });
-
-});
-
 function addSetlist(liveName, songs) {
   songs.forEach(item => {
     data.push({
