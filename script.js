@@ -10,6 +10,9 @@ window.addEventListener("DOMContentLoaded", () => {
   const error = document.getElementById("errorMsg");
   const btn = document.getElementById("loginBtn");
 
+  loginBox.style.display = "block";
+  mainSite.style.display = "none";
+
   btn.addEventListener("click", () => {
     if (input.value === PASSWORD) {
       loginBox.style.display = "none";
@@ -19,7 +22,6 @@ window.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // Enter対応
   input.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
       btn.click();
@@ -38,7 +40,6 @@ function addSetlist(liveName, songs) {
     });
   });
 }
-
 
 
 /* ===== サンプルデータ ===== */
