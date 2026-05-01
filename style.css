@@ -1,0 +1,62 @@
+body {
+  font-family: sans-serif;
+  padding: 30px;
+  background-color: #f8f8f8;
+}
+
+h1 {
+  color: #6a1b9a;
+}
+
+input {
+  padding: 8px;
+  width: 250px;
+  font-size: 16px;
+}
+
+button {
+  padding: 8px 12px;
+  margin-left: 5px;
+  font-size: 16px;
+}
+
+li {
+  margin-top: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+ max-width: 600px;
+  margin: auto;
+}
+
+input {
+  width: 70%;
+}
+
+button {
+  width: 25%;
+}
+
+@media screen and (max-width: 600px) {
+  input, button {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
