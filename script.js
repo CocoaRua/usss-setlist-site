@@ -1,15 +1,17 @@
 const data = [];
 
-function addSetlist(liveName, songs) {
+function addSetlist(year, liveName, songs) {
   songs.forEach(item => {
     data.push({
       song: item[0],
       note: item[1],
       alias: item[2] || "",
-      live: liveName
+      live: liveName,
+      year: year
     });
   });
 }
+
 
 
 /* ===== サンプルデータ ===== */
