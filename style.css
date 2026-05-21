@@ -16,6 +16,26 @@ li {
   margin: 8px 0;
 }
 
+/* パスワード画面 */
+#loginBox {
+  text-align: center;
+  margin-top: 100px;
+}
+
+#errorMsg {
+  color: red;
+  margin-top: 10px;
+}
+
+
+
+/*矢印で選択*/
+#suggest li.selected {
+  background: #e0e0e0;
+}
+
+
+
 /*注意事項*/
 .notice {
   font-size: 12px;
@@ -25,7 +45,18 @@ li {
 }
 
 
+/* 年見出し */
+.year-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+  list-style: none;
+}
 
+/* ライブ名 */
+.live-item {
+  margin-left: 20px;
+}
 
 
 
@@ -49,15 +80,3 @@ button {
     margin-top: 10px;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
