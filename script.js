@@ -1046,8 +1046,6 @@ addSetlist("浦島坂田船 Spring Tour 2026 ～夜叉～", [
 
 
 
-
-
 /* ===== 正規化 ===== */
 function normalize(str) {
   return (str || "")
@@ -1059,72 +1057,142 @@ function normalize(str) {
     .replace(/\s+/g, "");
 }
 
-/* ===== データ（そのまま） ===== */
-// ←ここはあなたのデータ全部そのままでOK
-
 /* ===== 初期化 ===== */
 window.addEventListener("DOMContentLoaded", () => {
 
-  const searchBox = document.getElementById("searchBox");
-  const suggest = document.getElementById("suggest");
-  const result = document.getElementById("result");
-  const searchBtn = document.getElementById("searchBtn");
+  const searchBox =
+    document.getElementById("searchBox");
+  const suggest =
+    document.getElementById("suggest");
+  const result =
+    document.getElementById("result");
+  const searchBtn =
+    document.getElementById("searchBtn");
+
+  let selectedIndex = -1;
 
   /* ===== 検索処理 ===== */
   function searchSong() {
-    const keyword = searchBox.value.trim();
-    const key = normalize(keyword);
+    const keyword =
+      searchBox.value.trim();
 
-    result.innerHTML = "";
+   const key = normalize(keyword);
 
-    const filtered = data.filter(item =>
-      normalize(item.song) === key ||
-      normalize(item.alias).includes(key)
-    );
+result.innerHTML = "";
+
+/* 空欄対策 */
+if (!key) {
+  result.innerHTML =
+    "<li>見つかりませんでした</li>";
+  return;
+}
+
+    const filtered =
+      data.filter(item =>
+        normalize(item.song) === key ||
+        normalize(item.alias)
+          .includes(key)
+      );
 
     if (filtered.length === 0) {
-      result.innerHTML = "<li>見つかりませんでした</li>";
+      result.innerHTML =
+        "<li>見つかりませんでした</li>";
       return;
     }
 
-    const seen = new Set();
+const grouped = {};
 
-    filtered.forEach(item => {
-      const text = item.note
-        ? `${item.live}（${item.note}）`
-        : item.live;
+/* 年ごと分類 */
+filtered.forEach(item => {
 
-      if (!seen.has(text)) {
-        seen.add(text);
-        const li = document.createElement("li");
-        li.textContent = text;
-        result.appendChild(li);
-      }
-    });
+  const year =
+    item.year || "その他";
+
+  const liveText =
+    item.note
+      ? `${item.live}（${item.note}）`
+      : item.live;
+
+  if (!grouped[year]) {
+    grouped[year] = new Set();
+  }
+
+  grouped[year].add(liveText);
+});
+
+/* 表示 */
+Object.keys(grouped)
+  .sort()
+  .forEach(year => {
+
+    // 年見出し
+    const yearLi =
+      document.createElement("li");
+
+    yearLi.className =
+      "year-title";
+
+    yearLi.textContent =
+      `[${year}]`;
+
+    result.appendChild(yearLi);
+
+    // ライブ一覧
+    grouped[year]
+      .forEach(live => {
+
+        const liveLi =
+          document.createElement("li");
+
+        liveLi.className =
+          "live-item";
+
+        liveLi.textContent =
+          live;
+
+        result.appendChild(liveLi);
+      });
+  });
+
   }
 
   /* ===== サジェスト ===== */
-  searchBox.addEventListener("input", () => {
-    const keyNorm = normalize(searchBox.value.trim());
-    suggest.innerHTML = "";
+  searchBox.addEventListener(
+    "input",
+    () => {
 
-    if (!keyNorm) return;
+      const keyNorm =
+        normalize(
+          searchBox.value.trim()
+        );
 
-    const matches = [];
+      suggest.innerHTML = "";
+      selectedIndex = -1;
 
-    data.forEach(item => {
-      if (
-        normalize(item.song).includes(keyNorm) ||
-        normalize(item.alias).includes(keyNorm)
-      ) {
-        matches.push(item.song);
-      }
-    });
+      if (!keyNorm) return;
 
-    [...new Set(matches)]
-      .slice(0, 10)
-      .forEach(song => {
-        const li = document.createElement("li");
+      const matches = [];
+
+      data.forEach(item => {
+        if (
+          normalize(item.song)
+            .includes(keyNorm) ||
+          normalize(item.alias)
+            .includes(keyNorm)
+        ) {
+          matches.push(item.song);
+        }
+      });
+
+      const uniqueMatches =
+        [...new Set(matches)]
+          .slice(0, 10);
+
+      uniqueMatches.forEach(song => {
+
+        const li =
+          document.createElement("li");
+
         li.textContent = song;
 
         li.onclick = () => {
@@ -1135,17 +1203,109 @@ window.addEventListener("DOMContentLoaded", () => {
 
         suggest.appendChild(li);
       });
-  });
+    }
+  );
+
+  /* ===== 選択状態 ===== */
+  function updateSelection(items) {
+
+    items.forEach(item => {
+      item.classList.remove(
+        "selected"
+      );
+    });
+
+    if (items[selectedIndex]) {
+
+      items[selectedIndex]
+        .classList.add(
+          "selected"
+        );
+
+      items[selectedIndex]
+        .scrollIntoView({
+          block: "nearest"
+        });
+    }
+  }
+
+  /* ===== キーボード ===== */
+  searchBox.addEventListener(
+    "keydown",
+    (e) => {
+
+      const items =
+        suggest.querySelectorAll(
+          "li"
+        );
+
+      // ↓
+      if (
+        e.key === "ArrowDown"
+      ) {
+
+        e.preventDefault();
+
+        if (
+          items.length === 0
+        ) return;
+
+        selectedIndex =
+          selectedIndex <
+          items.length - 1
+            ? selectedIndex + 1
+            : 0;
+
+        updateSelection(items);
+      }
+
+      // ↑
+      else if (
+        e.key === "ArrowUp"
+      ) {
+
+        e.preventDefault();
+
+        if (
+          items.length === 0
+        ) return;
+
+        selectedIndex =
+          selectedIndex > 0
+            ? selectedIndex - 1
+            : items.length - 1;
+
+        updateSelection(items);
+      }
+
+      // Enter
+      else if (
+        e.key === "Enter"
+      ) {
+
+        e.preventDefault();
+
+        if (
+          selectedIndex >= 0 &&
+          items[selectedIndex]
+        ) {
+          searchBox.value =
+            items[
+              selectedIndex
+            ].textContent;
+        }
+
+        suggest.innerHTML = "";
+        searchSong();
+      }
+    }
+  );
+
 
   /* ===== ボタン ===== */
-  searchBtn.addEventListener("click", searchSong);
-
-  /* ===== Enter ===== */
-  searchBox.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") {
-      suggest.innerHTML = "";
-      searchSong();
-    }
-  });
+  searchBtn.addEventListener(
+    "click",
+    searchSong
+  );
 
 });
