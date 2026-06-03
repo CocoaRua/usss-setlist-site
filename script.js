@@ -711,6 +711,8 @@ addSetlist(
 
 
 
+
+
 addSetlist(
   "2023",
   "浦島坂田船 SUMMER TOUR 2023 Plusss", [
@@ -995,6 +997,17 @@ addSetlist(
 ["カゲロウデイズ", "日替わり", "カゲロウデイズ"],
 ]);
 
+
+addSetlist(
+ "2025",
+ "浦島坂田船の大忘年会", [
+/* 完成 */
+   ["Snow melody","","スノーメロディー"],
+["SWEET TASTE PRESENT","","スイートテイストプレゼント"],
+["カレンダーリマインダー", "", "カレンダーリマインダー"],
+["Shoutër", "", "シャウター"],
+["Starry Cruise", "", "スターリークルーズ"],
+]);
 
 addSetlist(
   "2025",
