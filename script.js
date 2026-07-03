@@ -1519,6 +1519,7 @@ Object.keys(grouped)
 
         e.preventDefault();
 
+        
         if (
           selectedIndex >= 0 &&
           items[selectedIndex]
