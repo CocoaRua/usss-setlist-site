@@ -17,6 +17,7 @@ function addSetlist(year, liveName, songs) {
 /* ===== サンプルデータ ===== */
 
 addSetlist(
+  "浦島坂田船",
   "2016",
   "浦島坂田船 SUMMER TOUR 2016　-CRUISE PARTY-", [
 ["Pathfinders","","パスファインダーズ"],
@@ -50,6 +51,7 @@ addSetlist(
 ]);
 
 addSetlist(
+  "浦島坂田船",
   "2016",
   "浦島坂田船 SUMMER TOUR 2016 -CRUISE LIVE-", [   
 ["Pathfinders", "", "パスファインダーズ"],
@@ -77,6 +79,7 @@ addSetlist(
 ]);
 
 addSetlist(
+  "浦島坂田船",
   "2017",
   "浦島坂田船 SPRING TOUR 2017 -春の宴-", [
 ["海賊船～心の奪い手～", "", "カイゾクセンココロノウバイテ"],
@@ -100,6 +103,7 @@ addSetlist(
 ]);
 
 addSetlist(
+  "浦島坂田船",
   "2017",
   "浦島坂田船 SUMMER TOUR 2017 ～THE FINAL～", [
 ["Pathfinders", "", "パスファインダーズ"],
@@ -130,6 +134,7 @@ addSetlist(
 
 
 addSetlist(
+  "浦島坂田船",
   "2017",
   "Happy Halloweeeen 浦島坂田幽霊船 ～コスプレしてLOVE（恋）♥～", [
 /*完成*/
@@ -154,6 +159,7 @@ addSetlist(
 
 
 addSetlist(
+  "浦島坂田船",
   "2018",
   "浦島坂田船 Spring Tour 2018 ～桜吹雪で乱de舞！～", [
     /*完成*/
@@ -197,6 +203,7 @@ addSetlist(
 ]);
 
 addSetlist(
+  "浦島坂田船",
   "2018",
   "SUMMER TOUR 2018～俺SUMMERと、宇CHU♡旅行♡～ DJ Edition", [
     ["Starry Cruise","","スターリークルーズ"],
@@ -224,6 +231,7 @@ addSetlist(
 
     
 addSetlist(
+  "浦島坂田船",
   "2018",
   "浦島坂田船 SUMMER TOUR 2018 ～THE FINAL～", [
 ["Starry Cruise", "", "スターリークルーズ"],
@@ -251,6 +259,7 @@ addSetlist(
 
 
 addSetlist(
+  "浦島坂田船",
   "2018",
   "Happy Halloweeeen 浦島坂田幽霊船 ～吸魂（求婚）パーティ！？ちょっと魔って♥もしかして僕にヨーカイ？～", [
 ["グリムメイカー", "", "グリムメイカー"],
@@ -282,6 +291,7 @@ addSetlist(
 
 
 addSetlist(
+  "浦島坂田船",
   "2019",
   "浦島坂田船 Spring Tour 2019 -斬（ZAN）-", [
 ["花鳥風月", "", "カチョウフウゲツ"],
@@ -310,6 +320,7 @@ addSetlist(
 
 
 addSetlist(
+  "浦島坂田船",
   "2019",
   "浦島坂田船 SUMMER TOUR 2019 -浦島theカジノ船　俺たち愛＄、今夜お前とBETイン-", [
 ["ポーカーフェイク", "", "ポーカーフェイク"],
@@ -351,6 +362,7 @@ addSetlist(
 
 
 addSetlist(
+  "浦島坂田船",
   "2019",
   "Happy Halloweeeen 浦島坂田幽霊船　～ようこそ令和元年 やっぱり霊はあかんねん憑依Go!～", [
 ["HORRORISM", "", "ホラリズム"],
@@ -385,6 +397,7 @@ addSetlist(
 
 
 addSetlist(
+  "浦島坂田船",
   "2020",
   "浦島坂田船！Live&Live～RAINBOW～", [
 /*完成*/
@@ -411,6 +424,7 @@ addSetlist(
 
 
 addSetlist(
+  "浦島坂田船",
   "2020",
   "浦島坂田船！Live&Live～CREW'S BEST～", [
 /*完成*/
@@ -445,6 +459,7 @@ addSetlist(
 
 
 addSetlist(
+  "浦島坂田船",
   "2021",
   "浦島坂田船 Spring Tour 2021 花（HANA）〜桜花再凛〜", [
 /*完成*/
@@ -487,6 +502,7 @@ addSetlist(
 
 
 addSetlist(
+  "浦島坂田船",
   "2021",
   "浦島坂田船 SUMMER TOUR 2021 ～甘い∞(はち)密のような♡(恋)をしない？キミの放課後はボクのモノ♡無限大の♡(LOVE)STARTぉ☆～", [
     /*完成*/
@@ -532,6 +548,7 @@ addSetlist(
 
 
 addSetlist(
+  "浦島坂田船",
   "2021",
   "Happy Halloweeeen 浦島坂田幽霊船　～本気か！MAGIC！マジカルミラクル！きゅるるるるん☆彡　お菓子くなっちゃう♡もうっ//♡　やメテオー！CHU♡ﾄﾞｰﾝ！～", [
 /*完成*/
@@ -565,6 +582,7 @@ addSetlist(
 
 
 addSetlist(
+  "浦島坂田船",
   "2022",
   "浦島坂田船 Spring Tour 2022 ～令和浪漫～", [
         /*完成*/
@@ -599,6 +617,7 @@ addSetlist(
 ]);
 
 addSetlist(
+  "浦島坂田船",
   "2022",
   "浦島坂田船 SUMMER TOUR 2022 Toni9ht", [
     /*完成*/
@@ -633,6 +652,7 @@ addSetlist(
 ]);
 
 addSetlist(
+  "浦島坂田船",
   "2022",
   "Happy Halloweeeen 浦島坂田幽霊船 Ψ悪魔執事Ψ あなたが飽くまで仕えます♡ワタクシかなり使えます♡ちゃんとしni9htお仕置きデビか～？？？？", [
 ["ジャックオーランタン", "", "ジャックオーランタン"],
@@ -669,6 +689,7 @@ addSetlist(
 
 
 addSetlist(
+  "浦島坂田船",
   "2023",
   "浦島坂田船 Spring Tour 2023 彩 -sai-", [
 /*完成*/
@@ -700,6 +721,7 @@ addSetlist(
 ]);
 
 addSetlist(
+  "浦島坂田船",
   "2023",
   "浦島坂田船 10th Anniversary 〜Memorial Live〜", [
 /*完成*/
@@ -747,6 +769,7 @@ addSetlist(
 
 
 addSetlist(
+  "浦島坂田船",
   "2023",
   "浦島坂田船 SUMMER TOUR 2023 Plusss", [
 /*完成*/
@@ -786,6 +809,7 @@ addSetlist(
 
 
 addSetlist(
+  "浦島坂田船",
   "2023",
   "Happy Halloweeeen 浦島坂田幽霊船　～キャッ！とめられないの!?いたずらしニャイで♡でもご主人タマがすこすこすこてぃっしゅHOLD♡～", [
 /*完成*/
@@ -818,6 +842,7 @@ addSetlist(
 
 
 addSetlist(
+  "浦島坂田船",
   "2024",
   "USSS SOLO FESTIVAL 2024 -ソロフェス-", [
 /*未完成*/
@@ -871,6 +896,7 @@ addSetlist(
 
 
 addSetlist(
+  "浦島坂田船",
   "2024",
   "浦島坂田船 Spring Tour 2024 -四春祭-", [
 /* 完成 */
@@ -911,6 +937,7 @@ addSetlist(
 
 
 addSetlist(
+  "浦島坂田船",
   "2024",
   "浦島坂田船 SUMMER TOUR 2024 Weddiing", [
 /* 完成 */
@@ -947,6 +974,7 @@ addSetlist(
 
 
 addSetlist(
+  "浦島坂田船",
   "2024",
   "Happy Halloweeeen 浦島坂田幽霊船 さぁ手をとってshall we dance? 舞踏会はもう明日！？まだはえーよ！マスカレード！ぬっはー！仮面の下はｶﾒｪﾝｸﾞｽｩﾝ ｽｩﾝ…ｽｩﾝ…ｽｩﾝ…", [
 /* 完成 */
@@ -988,6 +1016,7 @@ addSetlist(
 
 
 addSetlist(
+  "浦島坂田船",
  "2024",
  "浦島坂田船の大忘年会", [
 /* 完成 */
@@ -1013,6 +1042,7 @@ addSetlist(
 
 
 addSetlist(
+  "浦島坂田船",
   "2025",
   "浦島坂田船～歌ってみた祭り！～", [
 /*完成*/
@@ -1056,6 +1086,7 @@ addSetlist(
 
 
 addSetlist(
+  "浦島坂田船",
   "2025",
   "浦島坂田船 Spring TOUR 2025 月", [
 /* 完成 */
@@ -1108,6 +1139,7 @@ addSetlist(
 
 
 addSetlist(
+  "浦島坂田船",
   "2025",
   "浦島坂田船 SUMMER TOUR 2025 WARN12G", [
 /* 完成 */
@@ -1151,6 +1183,7 @@ addSetlist(
 
 
 addSetlist(
+  "浦島坂田船",
   "2025",
   "Happy Halloweeeen 浦島坂田幽霊船 ～え！？くぅｯｯ///そっ♡(腰に手をぽふっ)shh...STRONG...俺の弾丸をﾊﾞｷｭうーﾝ♡ﾎｯ､もう地獄はサッタンDEATHね～", [
 /*完成*/
@@ -1192,6 +1225,7 @@ addSetlist(
 
 
 addSetlist(
+  "浦島坂田船",
   "2026",
   "浦島坂田船 Spring Tour 2026 ～夜叉～", [
 /*完成*/
