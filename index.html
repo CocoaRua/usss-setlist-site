@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">
-<title>浦島坂田船 セトリ検索</title>
+<title>セトリ検索サイト</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
@@ -12,31 +12,25 @@
 
 
 <p class="notice">
-・本サイトは浦島坂田船の過去ライブセトリを個人で整理した非公式検索ページです。<br>
+・本サイトは浦島坂田船に関する過去ライブセトリを個人で整理した非公式検索ページです。<br>
 ・公式サイトとは一切関係ありません。<br>
 ・データの友人間での共有は可能ですが、SNS等での拡散はご遠慮ください。<br>
 ・状況により、予告なく公開を停止する場合があります。
 </p>
 
 
-<!-- パスワード画面（現在OFF）
-<div id="loginBox">
-  <h2>パスワードを入力してください</h2>
-  <input type="password" id="passwordInput" placeholder="Password">
-  <button onclick="checkPassword()">入室する</button>
-  <p id="errorMsg"></p>
-</div>
--->
-
-
-
-
-
-
-
-
 <div id="mainSite">
-  <h1>浦島坂田船 セトリ検索</h1>
+  <h1>セトリ検索サイト</h1>
+
+<div class="tabs">
+  <button class="artist-tab active" data-artist="浦島坂田船">
+    浦島坂田船
+  </button>
+
+  <button class="artist-tab" data-artist="そまうさ">
+    そまうさ
+  </button>
+</div>
 
   <input id="searchBox" placeholder="曲名を入力">
   <ul id="suggest"></ul>
@@ -49,36 +43,10 @@
 
 
 
-
-<!-- パスワード機能（現在OFF）
-<script>
-function checkPassword() {
-  const pass = document.getElementById("passwordInput").value;
-
-  if (pass === "USSS0907") {
-    document.getElementById("loginBox").style.display = "none";
-    document.getElementById("mainSite").style.display = "block";
-  } else {
-    document.getElementById("errorMsg").textContent = "パスワードが違います";
-  }
-}
-</script>
--->
-
-
-
-
-
-
-
-
-
 <script src="script.js"></script>
 
 </body>
 </html>
-
-
 
 
 </html>
