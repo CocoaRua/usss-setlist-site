@@ -1366,6 +1366,7 @@ data.filter(item =>
     normalize(item.alias).includes(key)
   )
 );
+    
 
     if (filtered.length === 0) {
       result.innerHTML =
