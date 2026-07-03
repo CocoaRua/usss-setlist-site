@@ -1,8 +1,9 @@
 const data = [];
 
-function addSetlist(year, liveName, songs) {
+function addSetlist(artist, year, liveName, songs) {
   songs.forEach(item => {
     data.push({
+      artist: artist,
       song: item[0],
       note: item[1],
       alias: item[2] || "",
@@ -11,7 +12,6 @@ function addSetlist(year, liveName, songs) {
     });
   });
 }
-
 
 
 /* ===== サンプルデータ ===== */
@@ -130,9 +130,6 @@ addSetlist(
 ["Shoutër", "", "シャウター"],
 ]);
 
-
-
-
 addSetlist(
   "浦島坂田船",
   "2017",
@@ -155,7 +152,6 @@ addSetlist(
 ["千本桜-guitar rock arrangement ver.-", "", "センボンザクラギターロックアレンジメント"],
 ["SHOW MUST GO ON!!", "", "ショウマストゴーオン"],
 ]);
-
 
 
 addSetlist(
@@ -286,10 +282,6 @@ addSetlist(
 ["SAILING!!!!!", "", "セイリング"],
 ]);
 
-
-
-
-
 addSetlist(
   "浦島坂田船",
   "2019",
@@ -316,7 +308,6 @@ addSetlist(
 ["Shoutër", "", "シャウター"],
 ["SAILING!!!!!", "", "セイリング"],
 ]);
-
 
 
 addSetlist(
@@ -1276,6 +1267,37 @@ addSetlist(
 
 
 
+addSetlist(
+"そまうさ",
+"2024",
+"そらまふうらさかから逃げられない！",[
+["メルヘラトキシン","","メルヘラトキシン"],
+["メンヘラじゃないもん！","","メンヘラジャナイモン"],
+["ベノム","","ベノム"],
+["キャットラビング","","キャットラビング"],
+["カレシのジュード","うらたぬき","カレシノジュード"],
+["キャラバン","となりの坂田。","キャラバン"],
+["ずうっといっしょ！","そらる","ズウットイッショ"],
+["愛して愛して愛して","まふまふ","アイシテアイシテアイシテ"],
+["モニタリング","","モニタリング"],
+["Peacock Epoch","","ピーコックエポック"],
+["こちら、幸福安心委員会です。","","コチラコウフクアンシンイインカイデス"],
+["能力引継ぎで乙女ゲーの世界に転生した件についてｗｗｗ","","ノウリョクヒキツギデオトメゲーノセカイニテンセイシタケンニツイテ"],
+["ハッピーシンセサイザ","まふまふ・うらたぬき","ハッピーシンセサイザ"],
+["カイコ","そらる・となりの坂田。","カイコ"],
+["必殺のコマンド","","ヒッサツノコマンド"],
+["ぼうけんのしょがきえました！","","ボウケンノショガキエマシタ"],
+["チェリーポップ","うらさか","チェリーポップ"],
+["マシュマロ","そらる・まふまふ","マシュマロ"],
+["甘さ苦さ、トレードオフ","そらる・うらたぬき","アマサニガサトレードオフ"],
+["夜桜","まふまふ・となりの坂田。","ヨザクラ"],
+["人生ムリゲーム","","ジンセイムリゲーム"],
+["Mrs.","","ミセス"],
+["ロキ","","ロキ"],
+["ロールプレイングゲーム","","ロールプレイングゲーム"],]);
+
+
+
 
 
 
@@ -1305,6 +1327,32 @@ window.addEventListener("DOMContentLoaded", () => {
 
   let selectedIndex = -1;
 
+
+let currentArtist = "浦島坂田船";
+
+const tabs =
+  document.querySelectorAll(".artist-tab");
+
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+
+    tabs.forEach(t =>
+      t.classList.remove("active")
+    );
+
+    tab.classList.add("active");
+
+    currentArtist =
+      tab.dataset.artist;
+
+    searchBox.value = "";
+    suggest.innerHTML = "";
+    result.innerHTML = "";
+    selectedIndex = -1;
+  });
+});
+
+
   /* ===== 検索処理 ===== */
   function searchSong() {
     const keyword =
@@ -1321,12 +1369,14 @@ if (!key) {
   return;
 }
 
-    const filtered =
-      data.filter(item =>
-        normalize(item.song) === key ||
-        normalize(item.alias)
-          .includes(key)
-      );
+   const filtered =
+data.filter(item =>
+  item.artist===currentArtist &&
+  (
+    normalize(item.song)===key ||
+    normalize(item.alias).includes(key)
+  )
+);
 
     if (filtered.length === 0) {
       result.innerHTML =
@@ -1407,16 +1457,18 @@ Object.keys(grouped)
 
       const matches = [];
 
-      data.forEach(item => {
-        if (
-          normalize(item.song)
-            .includes(keyNorm) ||
-          normalize(item.alias)
-            .includes(keyNorm)
-        ) {
-          matches.push(item.song);
-        }
-      });
+     data.forEach(item=>{
+
+  if(item.artist!==currentArtist) return;
+
+  if(
+    normalize(item.song).includes(keyNorm) ||
+    normalize(item.alias).includes(keyNorm)
+  ){
+    matches.push(item.song);
+  }
+
+});
 
       const uniqueMatches =
         [...new Set(matches)]
@@ -1519,7 +1571,6 @@ Object.keys(grouped)
 
         e.preventDefault();
 
-        
         if (
           selectedIndex >= 0 &&
           items[selectedIndex]
