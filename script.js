@@ -1302,6 +1302,7 @@ addSetlist(
 
 
 
+
 /* ===== 正規化 ===== */
 function normalize(str) {
   return (str || "")
