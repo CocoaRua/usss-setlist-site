@@ -13,6 +13,7 @@ function addSetlist(artist, year, liveName, songs) {
   });
 }
 
+
 function normalize(str) {
   return (str || "")
     .toLowerCase()
