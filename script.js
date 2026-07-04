@@ -1577,6 +1577,7 @@ Object.keys(grouped)
     }
   );
 
+  
 
   /* ===== ボタン ===== */
   searchBtn.addEventListener(
