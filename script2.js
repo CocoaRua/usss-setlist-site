@@ -1,8 +1,8 @@
-const data = [];
+window.data = [];
 
 function addSetlist(artist, year, liveName, songs) {
   songs.forEach(item => {
-    data.push({
+    window.data.push({
       artist,
       song: item[0],
       note: item[1],
@@ -52,7 +52,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     if (!key) return;
 
-    const filtered = data.filter(item =>
+    const filtered = window.data.filter(item =>
       item.artist === currentArtist &&
       (
         normalize(item.song) === key ||
@@ -102,7 +102,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     const matches = [];
 
-    data.forEach(item => {
+    window.data.forEach(item => {
       if (item.artist !== currentArtist) return;
 
       if (
@@ -149,9 +149,7 @@ window.addEventListener("DOMContentLoaded", () => {
           : 0;
 
       updateSelection(items);
-    }
-
-    else if (e.key === "ArrowUp") {
+    } else if (e.key === "ArrowUp") {
       e.preventDefault();
       if (items.length === 0) return;
 
@@ -161,9 +159,7 @@ window.addEventListener("DOMContentLoaded", () => {
           : items.length - 1;
 
       updateSelection(items);
-    }
-
-    else if (e.key === "Enter") {
+    } else if (e.key === "Enter") {
       e.preventDefault();
 
       if (selectedIndex >= 0 && items[selectedIndex]) {
