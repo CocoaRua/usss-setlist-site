@@ -1,3 +1,5 @@
+console.log("somausa.js 読み込み成功");
+
 addSetlist(
 "そまうさ",
 "2026",
