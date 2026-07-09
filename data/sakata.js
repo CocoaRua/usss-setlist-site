@@ -27,3 +27,5 @@ addSetlist(
 ["Redo Parade","","リドゥパレード"],
 ["Mermaid","","マーメイド"],
 ]);
+
+
