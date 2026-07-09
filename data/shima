@@ -1,4 +1,7 @@
-SHIMA LIVE TOUR 2026 色なき国のアリス ～Alice in colorless wonderland～
+addSetlist(
+  "志麻",
+  "2026",
+  "SHIMA LIVE TOUR 2026 色なき国のアリス ～Alice in colorless wonderland～", [
 ["Alice of Nothing","","アリスオブナッシング"],
 ["禁断少女プラスA","","キンダンショウジョプラスエー"],
 ["レーヴ","","レーヴ"],
