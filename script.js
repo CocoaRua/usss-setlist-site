@@ -61,6 +61,8 @@ window.addEventListener("DOMContentLoaded", () => {
       )
     );
 
+    console.log(filtered);
+
     if (filtered.length === 0) {
       result.innerHTML = "<li>見つかりませんでした</li>";
       return;
