@@ -1,5 +1,5 @@
 addSetlist(
-  "坂田",
+  "あほの坂田。",
   "2026",
   "AHO NO SAKATA LIVE TOUR 2026 -STAR [T] RAIL-", [
 ["STAR TRAIN","","スタートレイン"],
@@ -29,7 +29,7 @@ addSetlist(
 ]);
 
 addSetlist(
-  "坂田",
+  "あほの坂田。",
   "2025",
   "AHO NO SAKATA LIVE TOUR 2025 -Nurse-", [
 ["So happy!!!","","ソーハッピー"],
