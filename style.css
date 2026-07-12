@@ -46,19 +46,20 @@ li {
 /* タブ */
 .tabs {
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap;   /* 折り返す */
+    gap: 6px;
     margin-bottom: 15px;
 }
 
 .artist-tab {
-    padding: 8px 18px;
+    padding: 6px 10px;   /* ← 横幅を小さく */
     border: 2px solid #66b3ff;
     background: white;
     color: #66b3ff;
-    border-radius: 20px;
+    border-radius: 16px;
     cursor: pointer;
     transition: 0.2s;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 .artist-tab:hover {
@@ -70,7 +71,6 @@ li {
     color: white;
     font-weight: bold;
 }
-
 
 
 /* ライブ名 */
