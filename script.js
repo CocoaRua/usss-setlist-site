@@ -32,7 +32,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const tabs = document.querySelectorAll(".artist-tab");
 
   let selectedIndex = -1;
-  let currentArtist = "浦島坂田船";
+  let currentArtist = "総合";
 
   tabs.forEach(tab => {
     tab.addEventListener("click", () => {
@@ -53,13 +53,16 @@ window.addEventListener("DOMContentLoaded", () => {
 
     if (!key) return;
 
-    const filtered = window.data.filter(item =>
-      item.artist === currentArtist &&
-      (
-        normalize(item.song) === key ||
-        normalize(item.alias).includes(key)
-      )
-    );
+   const filtered = window.data.filter(item =>
+  (
+    currentArtist === "総合" ||
+    item.artist === currentArtist
+  ) &&
+  (
+    normalize(item.song) === key ||
+    normalize(item.alias).includes(key)
+  )
+);
 
     console.log(filtered);
 
@@ -72,9 +75,13 @@ window.addEventListener("DOMContentLoaded", () => {
 
     filtered.forEach(item => {
       const year = item.year || "その他";
-      const liveText = item.note
-        ? `${item.live}（${item.note}）`
-        : item.live;
+      let liveText = item.note
+  ? `${item.live}（${item.note}）`
+  : item.live;
+
+if (currentArtist === "総合") {
+  liveText = `【${item.artist}】${liveText}`;
+}
 
       if (!grouped[year]) grouped[year] = new Set();
       grouped[year].add(liveText);
@@ -106,16 +113,23 @@ window.addEventListener("DOMContentLoaded", () => {
     const matches = [];
 
     window.data.forEach(item => {
-      if (item.artist !== currentArtist) return;
 
-      if (
-        normalize(item.song).includes(keyNorm) ||
-        normalize(item.alias).includes(keyNorm)
-      ) {
-        matches.push(item.song);
-      }
-    });
+  if (
+    currentArtist !== "総合" &&
+    item.artist !== currentArtist
+  ) {
+    return;
+  }
 
+  if (
+    normalize(item.song).includes(keyNorm) ||
+    normalize(item.alias).includes(keyNorm)
+  ) {
+    matches.push(item.song);
+  }
+
+});
+    
     [...new Set(matches)].slice(0, 10).forEach(song => {
       const li = document.createElement("li");
       li.textContent = song;
