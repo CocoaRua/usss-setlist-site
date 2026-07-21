@@ -13,7 +13,6 @@ function addSetlist(artist, year, liveName, songs) {
   });
 }
 
-
 function normalize(str) {
   return (str || "")
     .toLowerCase()
@@ -53,35 +52,30 @@ window.addEventListener("DOMContentLoaded", () => {
 
     if (!key) return;
 
-   const filtered = window.data.filter(item =>
-  (
+   const filtered = window.data.filter(item => {
+  const artistMatches =
     currentArtist === "総合" ||
-    item.artist === currentArtist
-  ) &&
-  (
-    normalize(item.song) === key ||
-    normalize(item.alias).includes(key)
-  )
-);
+    item.artist === currentArtist;
 
-    console.log(filtered);
+  const songMatches =
+    normalize(item.song) === key ||
+    normalize(item.alias).includes(key);
+
+  return artistMatches && songMatches;
+});
 
     if (filtered.length === 0) {
       result.innerHTML = "<li>見つかりませんでした</li>";
       return;
-    }
+    }		
 
     const grouped = {};
 
     filtered.forEach(item => {
       const year = item.year || "その他";
-      let liveText = item.note
-  ? `${item.live}（${item.note}）`
-  : item.live;
-
-if (currentArtist === "総合") {
-  liveText = `【${item.artist}】${liveText}`;
-}
+      const liveText = item.note
+        ? `${item.live}（${item.note}）`
+        : item.live;
 
       if (!grouped[year]) grouped[year] = new Set();
       grouped[year].add(liveText);
@@ -113,13 +107,11 @@ if (currentArtist === "総合") {
     const matches = [];
 
     window.data.forEach(item => {
+  const artistMatches =
+    currentArtist === "総合" ||
+    item.artist === currentArtist;
 
-  if (
-    currentArtist !== "総合" &&
-    item.artist !== currentArtist
-  ) {
-    return;
-  }
+  if (!artistMatches) return;
 
   if (
     normalize(item.song).includes(keyNorm) ||
@@ -127,9 +119,8 @@ if (currentArtist === "総合") {
   ) {
     matches.push(item.song);
   }
-
 });
-    
+
     [...new Set(matches)].slice(0, 10).forEach(song => {
       const li = document.createElement("li");
       li.textContent = song;
