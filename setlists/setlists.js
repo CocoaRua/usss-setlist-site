@@ -1,5 +1,8 @@
 window.liveData = window.liveData || [];
 
+/*
+  ライブツアー形式のデータを登録する
+*/
 function addLiveTour(
   artist,
   year,
@@ -10,21 +13,34 @@ function addLiveTour(
     artist,
     year: String(year),
     liveTitle,
-    performances
+    performances: Array.isArray(performances)
+      ? performances
+      : []
   });
 }
 
+/*
+  別のJSファイルからも確実に呼び出せるようにする
+*/
+window.addLiveTour = addLiveTour;
 
 
 let currentLiveArtist = "浦島坂田船";
 let currentLiveYear = "";
 
+
+/*
+  HTMLの読み込みが完了してから一覧を作成する
+*/
 document.addEventListener("DOMContentLoaded", () => {
   setupArtistTabs();
   renderYearTabs();
 });
 
 
+/*
+  アーティスト切り替えタブを設定する
+*/
 function setupArtistTabs() {
   const artistTabs =
     document.querySelectorAll(".live-artist-tab");
@@ -37,7 +53,9 @@ function setupArtistTabs() {
 
       tab.classList.add("active");
 
-      currentLiveArtist = tab.dataset.artist;
+      currentLiveArtist =
+        tab.dataset.artist || "浦島坂田船";
+
       currentLiveYear = "";
 
       renderYearTabs();
@@ -46,197 +64,53 @@ function setupArtistTabs() {
 }
 
 
+/*
+  選択中のアーティストに登録されている年を表示する
+*/
 function renderYearTabs() {
-  const yearTabs = document.getElementById("year-tabs");
+  const yearTabs =
+    document.getElementById("year-tabs");
+
+  const liveTitleList =
+    document.getElementById("live-title-list");
+
+  if (!yearTabs) {
+    console.error(
+      "year-tabs が見つかりません。"
+    );
+    return;
+  }
+
+  if (!liveTitleList) {
+    console.error(
+      "live-title-list が見つかりません。"
+    );
+    return;
+  }
 
   yearTabs.innerHTML = "";
 
   const artistData = window.liveData.filter(
-    live => live.artist === currentLiveArtist
+    live =>
+      live.artist === currentLiveArtist
   );
 
   const years = [
     ...new Set(
-      artistData.map(live => live.year)
+      artistData.map(live => String(live.year))
     )
-  ].sort((a, b) => Number(b) - Number(a));
+  ].sort(
+    (a, b) => Number(b) - Number(a)
+  );
 
   if (years.length === 0) {
-    document.getElementById("live-title-list").innerHTML =
+    currentLiveYear = "";
+
+    liveTitleList.innerHTML =
       "<p>登録されているセトリはありません。</p>";
 
     return;
   }
-
-  if (
-    !currentLiveYear ||
-    !years.includes(currentLiveYear)
-  ) {
-    currentLiveYear = years[0];
-  }
-
-  years.forEach(year => {
-    const button = document.createElement("button");
-
-    button.type = "button";
-    button.className = "year-tab";
-    button.textContent = year;
-
-    if (year === currentLiveYear) {
-      button.classList.add("active");
-    }
-
-    button.addEventListener("click", () => {
-      currentLiveYear = year;
-
-      document
-        .querySelectorAll(".year-tab")
-        .forEach(tab => {
-          tab.classList.remove("active");
-        });
-
-      button.classList.add("active");
-
-      renderLiveTitles();
-    });
-
-    yearTabs.appendChild(button);
-  });
-
-  renderLiveTitles();
-}
-
-
-
-function renderLiveTitles() {
-  const container =
-    document.getElementById("live-title-list");
-
-  container.innerHTML = "";
-
-  const selectedLives = window.liveData.filter(
-    live =>
-      live.artist === currentLiveArtist &&
-      live.year === currentLiveYear
-  );
-
-  if (selectedLives.length === 0) {
-    container.innerHTML =
-      "<p>この年のセトリは登録されていません。</p>";
-
-    return;
-  }
-
-  selectedLives.forEach(live => {
-    const liveBlock = document.createElement("section");
-    liveBlock.className = "tour-block";
-
-    const titleButton = document.createElement("button");
-    titleButton.type = "button";
-    titleButton.className = "tour-title-button";
-
-    const titleText = document.createElement("span");
-    titleText.textContent = live.liveTitle;
-
-    const arrow = document.createElement("span");
-    arrow.className = "accordion-arrow";
-    arrow.textContent = "▼";
-
-    titleButton.appendChild(titleText);
-    titleButton.appendChild(arrow);
-
-    const performanceList =
-      document.createElement("div");
-
-    performanceList.className =
-      "performance-list hidden";
-
-    live.performances.forEach(performance => {
-      performanceList.appendChild(
-        createPerformanceBlock(performance)
-      );
-    });
-
-    titleButton.addEventListener("click", () => {
-      titleButton.classList.toggle("open");
-      performanceList.classList.toggle("hidden");
-    });
-
-    liveBlock.appendChild(titleButton);
-    liveBlock.appendChild(performanceList);
-    container.appendChild(liveBlock);
-  });
-}
-
-
-function createPerformanceBlock(performance) {
-  const performanceBlock =
-    document.createElement("article");
-
-  performanceBlock.className = "performance-block";
-
-  const performanceButton =
-    document.createElement("button");
-
-  performanceButton.type = "button";
-  performanceButton.className =
-    "performance-button";
-
-  const performanceTitle =
-    document.createElement("span");
-
-  performanceTitle.textContent =
-    `${performance.date}　${performance.place}`;
-
-  const arrow = document.createElement("span");
-  arrow.className = "accordion-arrow";
-  arrow.textContent = "▼";
-
-  performanceButton.appendChild(performanceTitle);
-  performanceButton.appendChild(arrow);
-
-  const setlistArea = document.createElement("div");
-  setlistArea.className = "performance-setlist hidden";
-
-  const songList = document.createElement("ol");
-  songList.className = "performance-song-list";
-
-  performance.songs.forEach(song => {
-    const item = document.createElement("li");
-
-    const songName = song[0] || "";
-    const songNote = song[1] || "";
-
-    const name = document.createElement("span");
-    name.className = "performance-song-name";
-    name.textContent = songName;
-
-    item.appendChild(name);
-
-    if (songNote) {
-      const note = document.createElement("span");
-      note.className = "performance-song-note";
-      note.textContent = songNote;
-
-      item.appendChild(note);
-    }
-
-    songList.appendChild(item);
-  });
-
-  setlistArea.appendChild(songList);
-
-  performanceButton.addEventListener("click", () => {
-    performanceButton.classList.toggle("open");
-    setlistArea.classList.toggle("hidden");
-  });
-
-  performanceBlock.appendChild(performanceButton);
-  performanceBlock.appendChild(setlistArea);
-
-  return performanceBlock;
-}
-    
 
   /*
     最初は一番新しい年を選択する
@@ -255,6 +129,7 @@ function createPerformanceBlock(performance) {
     button.type = "button";
     button.className = "year-tab";
     button.textContent = year;
+
     if (year === currentLiveYear) {
       button.classList.add("active");
     }
@@ -262,7 +137,7 @@ function createPerformanceBlock(performance) {
     button.addEventListener("click", () => {
       currentLiveYear = year;
 
-      document
+      yearTabs
         .querySelectorAll(".year-tab")
         .forEach(tab => {
           tab.classList.remove("active");
@@ -279,6 +154,7 @@ function createPerformanceBlock(performance) {
   renderLiveTitles();
 }
 
+
 /*
   選択したアーティストと年に該当する
   ライブタイトルを表示する
@@ -291,7 +167,6 @@ function renderLiveTitles() {
     console.error(
       "live-title-list が見つかりません。"
     );
-
     return;
   }
 
@@ -300,7 +175,7 @@ function renderLiveTitles() {
   const selectedLives = window.liveData.filter(
     live =>
       live.artist === currentLiveArtist &&
-      live.year === currentLiveYear
+      String(live.year) === currentLiveYear
   );
 
   if (selectedLives.length === 0) {
@@ -350,10 +225,6 @@ function renderLiveTitles() {
     performanceList.className =
       "performance-list hidden";
 
-    /*
-      performancesが配列でない場合でも
-      エラーで停止しないようにする
-    */
     const performances =
       Array.isArray(live.performances)
         ? live.performances
@@ -382,7 +253,6 @@ function renderLiveTitles() {
 
     liveBlock.appendChild(titleButton);
     liveBlock.appendChild(performanceList);
-
     container.appendChild(liveBlock);
   });
 }
@@ -412,8 +282,7 @@ function createPerformanceBlock(performance) {
     document.createElement("span");
 
   /*
-    日付と会場のうち、
-    入力されているものだけを表示する
+    日付と会場を表示
   */
   const performanceInfo = [
     performance?.date,
@@ -422,10 +291,6 @@ function createPerformanceBlock(performance) {
     .filter(Boolean)
     .join("　");
 
-  /*
-    addSetlist形式で日付と会場がない場合は
-    「セットリスト」と表示する
-  */
   performanceTitle.textContent =
     performanceInfo || "セットリスト";
 
@@ -439,10 +304,12 @@ function createPerformanceBlock(performance) {
     performanceTitle
   );
 
-  performanceButton.appendChild(arrow);
+  performanceButton.appendChild(
+    arrow
+  );
 
   /*
-    曲一覧を入れる場所
+    曲一覧
   */
   const setlistArea =
     document.createElement("div");
@@ -450,16 +317,6 @@ function createPerformanceBlock(performance) {
   setlistArea.className =
     "performance-setlist hidden";
 
-  const songList =
-    document.createElement("ol");
-
-  songList.className =
-    "performance-song-list";
-
-  /*
-    songsが配列でない場合でも
-    エラーで停止しないようにする
-  */
   const songs =
     Array.isArray(performance?.songs)
       ? performance.songs
@@ -473,57 +330,59 @@ function createPerformanceBlock(performance) {
       "曲目は登録されていません。";
 
     setlistArea.appendChild(message);
-  }
+  } else {
+    const songList =
+      document.createElement("ol");
 
-  songs.forEach(song => {
-    const item =
-      document.createElement("li");
+    songList.className =
+      "performance-song-list";
 
-    /*
-      曲データが配列の場合
-      [曲名, 歌唱者・注記, 読み方]
-      として読み取る
-    */
-    const songName =
-      Array.isArray(song)
-        ? song[0] || ""
-        : String(song || "");
+    songs.forEach(song => {
+      const item =
+        document.createElement("li");
 
-    const songNote =
-      Array.isArray(song)
-        ? song[1] || ""
-        : "";
+      /*
+        song が
+        [曲名, 注記, 読み]
+        の形式
+      */
+      const songName =
+        Array.isArray(song)
+          ? song[0] || ""
+          : String(song || "");
 
-    const name =
-      document.createElement("span");
+      const songNote =
+        Array.isArray(song)
+          ? song[1] || ""
+          : "";
 
-    name.className =
-      "performance-song-name";
-
-    name.textContent =
-      songName || "曲名未設定";
-
-    item.appendChild(name);
-
-    /*
-      歌唱者や注記がある場合のみ表示する
-    */
-    if (songNote) {
-      const note =
+      const name =
         document.createElement("span");
 
-      note.className =
-        "performance-song-note";
+      name.className =
+        "performance-song-name";
 
-      note.textContent = songNote;
+      name.textContent =
+        songName || "曲名未設定";
 
-      item.appendChild(note);
-    }
+      item.appendChild(name);
 
-    songList.appendChild(item);
-  });
+      if (songNote) {
+        const note =
+          document.createElement("span");
 
-  if (songs.length > 0) {
+        note.className =
+          "performance-song-note";
+
+        note.textContent =
+          songNote;
+
+        item.appendChild(note);
+      }
+
+      songList.appendChild(item);
+    });
+
     setlistArea.appendChild(songList);
   }
 
