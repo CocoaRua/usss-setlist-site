@@ -1,5 +1,9 @@
 window.liveData = window.liveData || [];
 
+
+/*
+  日付・会場を含む一覧ページ用データを登録する
+*/
 function addLiveTour(
   artist,
   year,
@@ -10,11 +14,36 @@ function addLiveTour(
     artist,
     year: String(year),
     liveTitle,
-    performances
+    performances: Array.isArray(performances)
+      ? performances
+      : []
   });
 }
 
 
+/*
+  古いaddSetlist形式のデータも
+  エラーにならないように変換する
+*/
+function addSetlist(
+  artist,
+  year,
+  liveTitle,
+  songs
+) {
+  addLiveTour(
+    artist,
+    year,
+    liveTitle,
+    [
+      {
+        date: "",
+        place: "",
+        songs: Array.isArray(songs) ? songs : []
+      }
+    ]
+  );
+}
 
 let currentLiveArtist = "浦島坂田船";
 let currentLiveYear = "";
