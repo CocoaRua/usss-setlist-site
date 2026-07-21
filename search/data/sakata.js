@@ -28,6 +28,7 @@ addSetlist(
 ["Mermaid","","マーメイド"],
 ]);
 
+
 addSetlist(
   "あほの坂田。",
   "2025",
