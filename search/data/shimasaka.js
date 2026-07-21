@@ -83,7 +83,6 @@ addSetlist(
 ]);
 
 
-
 addSetlist(
 "しまさか",
 "2022",
