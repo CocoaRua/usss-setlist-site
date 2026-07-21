@@ -1,0 +1,204 @@
+/* =========================
+   ページ全体
+========================= */
+
+body {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 30px;
+  font-family: sans-serif;
+  color: #333;
+}
+
+
+/* =========================
+   上部メニュー
+========================= */
+
+.global-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.global-menu a {
+  padding: 10px 18px;
+  color: #4387ad;
+  text-decoration: none;
+  background: #edf8fd;
+  border-radius: 10px;
+}
+
+.global-menu a:hover {
+  background: #dceff8;
+}
+
+.global-menu a.active {
+  color: white;
+  font-weight: bold;
+  background: #4387ad;
+}
+
+
+/* =========================
+   注意事項
+========================= */
+
+.notice {
+  margin-bottom: 20px;
+  color: #666;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+
+/* =========================
+   アーティストタブ
+========================= */
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 15px;
+}
+
+.artist-tab {
+  width: auto;
+  padding: 6px 10px;
+
+  color: #66b3ff;
+  font-size: 14px;
+
+  background: white;
+  border: 2px solid #66b3ff;
+  border-radius: 16px;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.artist-tab:hover {
+  background: #e8f4ff;
+}
+
+.artist-tab.active {
+  color: white;
+  font-weight: bold;
+  background: #66b3ff;
+}
+
+
+/* =========================
+   検索欄
+========================= */
+
+#searchBox {
+  box-sizing: border-box;
+  width: 70%;
+  padding: 10px;
+
+  font-size: 16px;
+
+  border: 1px solid #aaa;
+  border-radius: 8px;
+}
+
+#searchBtn {
+  box-sizing: border-box;
+  width: 25%;
+  padding: 10px;
+
+  color: white;
+  font-size: 16px;
+
+  background: #66b3ff;
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+#searchBtn:hover {
+  background: #469ce8;
+}
+
+
+/* =========================
+   サジェスト
+========================= */
+
+#suggest {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#suggest li {
+  margin: 0;
+  padding: 8px 10px;
+
+  background: white;
+  border-bottom: 1px solid #ddd;
+
+  cursor: pointer;
+}
+
+#suggest li:hover {
+  background: #f1f1f1;
+}
+
+/* キーボードの矢印で選択中 */
+#suggest li.selected {
+  background: #e0e0e0;
+}
+
+
+/* =========================
+   検索結果
+========================= */
+
+#result {
+  padding-left: 0;
+}
+
+#result li {
+  margin: 8px 0;
+}
+
+.year-title {
+  margin-top: 20px;
+
+  font-size: 20px;
+  font-weight: bold;
+
+  list-style: none;
+}
+
+.live-item {
+  margin-left: 20px;
+  list-style-position: inside;
+}
+
+
+/* =========================
+   スマートフォン対応
+========================= */
+
+@media screen and (max-width: 600px) {
+  body {
+    padding: 20px;
+  }
+
+  #searchBox,
+  #searchBtn {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .artist-tab {
+    width: auto;
+    margin-top: 0;
+  }
+}
