@@ -236,8 +236,7 @@ function createPerformanceBlock(performance) {
 
   return performanceBlock;
 }
-    return;
-  }
+    
 
   /*
     最初は一番新しい年を選択する
