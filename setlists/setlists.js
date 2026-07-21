@@ -255,7 +255,6 @@ function createPerformanceBlock(performance) {
     button.type = "button";
     button.className = "year-tab";
     button.textContent = year;
-
     if (year === currentLiveYear) {
       button.classList.add("active");
     }
@@ -278,7 +277,7 @@ function createPerformanceBlock(performance) {
   });
 
   renderLiveTitles();
-
+}
 
 /*
   選択したアーティストと年に該当する
