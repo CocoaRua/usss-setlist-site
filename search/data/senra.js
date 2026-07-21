@@ -28,6 +28,7 @@ addSetlist(
 ["cute you", "", "キュートユー"],
 ]);
 
+
 addSetlist(
   "センラ",
   "2024",
