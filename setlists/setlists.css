@@ -1,1 +1,286 @@
+/* =========================
+   ページ全体
+========================= */
 
+body {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+  font-family: sans-serif;
+  color: #333;
+}
+
+
+/* =========================
+   ヘッダー
+========================= */
+
+.site-header {
+  margin-bottom: 30px;
+}
+
+.site-header h1 {
+  margin-bottom: 20px;
+}
+
+
+/* =========================
+   上部メニュー
+========================= */
+
+.global-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.global-menu a {
+  padding: 10px 18px;
+
+  color: #4387ad;
+  text-decoration: none;
+
+  background: #edf8fd;
+  border-radius: 10px;
+}
+
+.global-menu a:hover {
+  background: #dceff8;
+}
+
+.global-menu a.active {
+  color: white;
+  font-weight: bold;
+  background: #4387ad;
+}
+
+
+/* =========================
+   非表示処理
+========================= */
+
+.hidden {
+  display: none;
+}
+
+
+/* =========================
+   アーティストタブ
+========================= */
+
+.live-artist-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.live-artist-tab {
+  width: auto;
+  padding: 8px 14px;
+
+  color: #4e91ba;
+  font-size: 15px;
+
+  background: white;
+  border: 2px solid #4e91ba;
+  border-radius: 18px;
+
+  cursor: pointer;
+}
+
+.live-artist-tab:hover {
+  background: #edf7fc;
+}
+
+.live-artist-tab.active {
+  color: white;
+  font-weight: bold;
+  background: #4e91ba;
+}
+
+
+/* =========================
+   年号タブ
+========================= */
+
+.year-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 25px 0;
+}
+
+.year-tab {
+  width: auto;
+  padding: 10px 22px;
+
+  color: #4e91ba;
+  font-size: 17px;
+  font-weight: bold;
+
+  background: #edf7fc;
+  border: none;
+  border-radius: 20px;
+
+  cursor: pointer;
+}
+
+.year-tab:hover {
+  background: #dceff8;
+}
+
+.year-tab.active {
+  color: white;
+  background: #4e91ba;
+}
+
+
+/* =========================
+   ライブタイトル
+========================= */
+
+.tour-block {
+  margin-bottom: 16px;
+}
+
+.tour-title-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  width: 100%;
+  padding: 16px 20px;
+
+  color: #4387ad;
+  font-size: 19px;
+  font-weight: bold;
+  text-align: left;
+
+  background: #eaf6fc;
+  border: none;
+  border-radius: 12px;
+
+  cursor: pointer;
+}
+
+.tour-title-button:hover {
+  background: #dceff8;
+}
+
+
+/* =========================
+   公演一覧
+========================= */
+
+.performance-list {
+  padding: 10px 18px 18px;
+}
+
+.performance-block {
+  border-bottom: 2px dotted #b9ddeb;
+}
+
+.performance-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  box-sizing: border-box;
+  width: 100%;
+  padding: 14px 10px;
+
+  color: #4387ad;
+  font-size: 17px;
+  text-align: left;
+
+  background: transparent;
+  border: none;
+
+  cursor: pointer;
+}
+
+.performance-button:hover {
+  background: #f2faff;
+}
+
+
+/* =========================
+   セットリスト
+========================= */
+
+.performance-setlist {
+  padding: 14px 20px;
+  background: #f5fbfe;
+}
+
+.performance-song-list {
+  margin: 0;
+  padding-left: 38px;
+  line-height: 1.9;
+}
+
+.performance-song-list li {
+  margin: 8px 0;
+}
+
+.performance-song-name {
+  font-weight: 500;
+}
+
+.performance-song-note {
+  margin-left: 12px;
+  color: #7999aa;
+  font-size: 0.85em;
+}
+
+
+/* =========================
+   開閉用の矢印
+========================= */
+
+.accordion-arrow {
+  margin-left: 15px;
+  font-size: 13px;
+  transition: transform 0.2s;
+}
+
+.open .accordion-arrow {
+  transform: rotate(180deg);
+}
+
+
+/* =========================
+   スマートフォン対応
+========================= */
+
+@media screen and (max-width: 600px) {
+  body {
+    padding: 20px;
+  }
+
+  .live-artist-tab,
+  .year-tab {
+    width: auto;
+  }
+
+  .tour-title-button {
+    padding: 14px;
+    font-size: 16px;
+  }
+
+  .performance-button {
+    padding: 12px 8px;
+    font-size: 15px;
+  }
+
+  .performance-list {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+
+  .performance-setlist {
+    padding: 12px 10px;
+  }
+}
