@@ -32,6 +32,7 @@ addSetlist(
 ["Blessing","日替わり","ブレッシング"],
 ]);
 
+
 addSetlist(
   "浦島坂田船",
   "2016",
