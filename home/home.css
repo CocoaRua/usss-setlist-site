@@ -1,0 +1,110 @@
+/* =========================
+   ページ全体
+========================= */
+
+body {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 30px;
+  font-family: sans-serif;
+  color: #333;
+}
+
+
+/* =========================
+   上部メニュー
+========================= */
+
+.global-menu {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.global-menu a {
+  padding: 10px 18px;
+  color: #4387ad;
+  text-decoration: none;
+  background: #edf8fd;
+  border-radius: 10px;
+}
+
+.global-menu a:hover {
+  background: #dceff8;
+}
+
+.global-menu a.active {
+  color: white;
+  font-weight: bold;
+  background: #4387ad;
+}
+
+
+/* =========================
+   ホームの説明部分
+========================= */
+
+.home-intro {
+  margin-bottom: 35px;
+  text-align: center;
+}
+
+
+/* =========================
+   ホームのメニューカード
+========================= */
+
+.home-menu {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.home-menu-card {
+  display: block;
+  min-height: 180px;
+  padding: 30px;
+
+  color: #4387ad;
+  text-decoration: none;
+
+  background: #edf8fd;
+  border: 2px solid #b8ddeb;
+  border-radius: 18px;
+
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+}
+
+.home-menu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(67, 135, 173, 0.2);
+}
+
+.home-menu-card h2 {
+  margin-top: 0;
+}
+
+
+/* =========================
+   スマートフォン対応
+========================= */
+
+@media screen and (max-width: 700px) {
+  body {
+    padding: 20px;
+  }
+
+  .home-menu {
+    grid-template-columns: 1fr;
+  }
+
+  .global-menu {
+    flex-wrap: wrap;
+  }
+
+  .global-menu a {
+    border-radius: 10px;
+  }
+}
