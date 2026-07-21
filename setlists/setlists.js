@@ -278,7 +278,6 @@ function createPerformanceBlock(performance) {
   });
 
   renderLiveTitles();
-}
 
 
 /*
