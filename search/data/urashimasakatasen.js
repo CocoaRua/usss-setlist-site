@@ -692,7 +692,7 @@ addSetlist(
 addSetlist(
   "浦島坂田船",
   "2023",
-  "10th Anniversary 浦島坂田船SPECIAL TAG LIVE2023 〜Shima×Senra Ride The Night〜",
+  "10th Anniversary 浦島坂田船SPECIAL TAG LIVE2023 〜Shima×Senra Ride The Night〜", [
  /*完成*/
   ["おこちゃま戦争","志麻・センラ","オコチャマセンソウ"],
 ["ヒバナ","志麻・センラ","ヒバナ"],
@@ -718,6 +718,7 @@ addSetlist(
 ["Mermaid","志麻・センラ","マーメイド"],
 ["#嘲笑ポラロイド","志麻・センラ","チョウショウポラロイド"],
 ]);
+
 
 addSetlist(
   "浦島坂田船",
