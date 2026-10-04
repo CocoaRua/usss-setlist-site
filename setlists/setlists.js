@@ -327,7 +327,7 @@ function createPerformanceBlock(performance) {
       document.createElement("p");
 
     message.textContent =
-      "曲目は登録されていません。";
+      "セトリが登録されていません。";
 
     setlistArea.appendChild(message);
   } else {
