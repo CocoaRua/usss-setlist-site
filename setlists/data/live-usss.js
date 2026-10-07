@@ -96,8 +96,8 @@ addLiveTour(
 
     
  date: "7月10日・夜の部",
-  place: "東京・TSUTAYA O-EAST",
-  songs: [
+ place: "東京・TSUTAYA O-EAST",
+ songs: [
 ["Pathfinders","浦島坂田船","パスファインダーズ"],
 ["アイドルっぽい曲を作った。","浦島坂田船","アイドルッポイキョクヲツクッタ"],
 ["Dreamer","浦島坂田船","ドリーマー"],
