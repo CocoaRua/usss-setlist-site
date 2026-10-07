@@ -956,38 +956,6 @@ addLiveTour(
 
 addLiveTour(
   "浦島坂田船",
-  "2019",
-  "URASAKA KINGDOM～To kiss princess～",
-  [
-{
-  date: "1月5日",
-  place: "愛知・Zepp Nagoya",
-  songs: [
-
-  ]
-},
-{
-  date: "1月6日",
-  place: "大阪・Zepp Namba",
-  songs: [
-
-  ]
-},
-{
-  date: "1月14日",
-  place: "東京・Zepp Tokyo",
-  songs: [
-
-  ]
-    }
-  ]
-);
-
-
-
-
-addLiveTour(
-  "浦島坂田船",
   "2018",
   "浦島坂田船 SUMMER TOUR 2018～THE FINAL～",
   [
@@ -1054,6 +1022,35 @@ addLiveTour(
 ["厨病激発ボーイ", "浦島坂田船", "チュウビョウゲキハツボーイ"],
 ["SAILING!!!!!", "浦島坂田船", "セイリング"],
        ]
+    }
+  ]
+);
+
+addLiveTour(
+  "浦島坂田船",
+  "2019",
+  "URASAKA KINGDOM～To kiss princess～",
+  [
+{
+  date: "1月5日",
+  place: "愛知・Zepp Nagoya",
+  songs: [
+
+  ]
+},
+{
+  date: "1月6日",
+  place: "大阪・Zepp Namba",
+  songs: [
+
+  ]
+},
+{
+  date: "1月14日",
+  place: "東京・Zepp Tokyo",
+  songs: [
+
+  ]
     }
   ]
 );
