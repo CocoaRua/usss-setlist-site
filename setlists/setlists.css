@@ -165,13 +165,6 @@ body {
   cursor: pointer;
 }
 
-.performance-block.no-setlist {
-  opacity: 0.55;
-}
-
-.performance-block.no-setlist .performance-button {
-  background-color: #eeeeee;
-}
 
 .tour-title-button:hover {
   background: #dceff8;
@@ -213,7 +206,14 @@ body {
   background: #f2faff;
 }
 
+/* =========================
+   セトリ未登録の公演
+========================= */
 
+.performance-block.no-setlist .performance-button {
+  background:  #fff2f4;
+  color: #ad4343;
+}
 /* =========================
    セットリスト
 ========================= */
