@@ -265,8 +265,15 @@ function createPerformanceBlock(performance) {
   const performanceBlock =
     document.createElement("article");
 
+  const songs =
+    Array.isArray(performance?.songs)
+      ? performance.songs
+      : [];
+
   performanceBlock.className =
-    "performance-block";
+    songs.length === 0
+      ? "performance-block no-setlist"
+      : "performance-block";
 
   /*
     公演情報を開閉するボタン
@@ -317,10 +324,7 @@ function createPerformanceBlock(performance) {
   setlistArea.className =
     "performance-setlist hidden";
 
-  const songs =
-    Array.isArray(performance?.songs)
-      ? performance.songs
-      : [];
+
 
   if (songs.length === 0) {
     const message =
