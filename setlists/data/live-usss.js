@@ -94,7 +94,7 @@ addLiveTour(
   ]
 );
 
-    
+  {  
  date: "7月10日・夜の部",
  place: "東京・TSUTAYA O-EAST",
  songs: [
