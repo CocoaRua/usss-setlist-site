@@ -1461,17 +1461,10 @@ addLiveTour(
 
 
 
-
-
-
-
-
-
 addLiveTour(
   "浦島坂田船",
   "2020",
-  "浦島坂田船 Spring Tour 2020 ―花（HANA）―",
-  [
+  "浦島坂田船 Spring Tour 2020 ―花（HANA）―",[
 {
   date: "2月23日",
   place: "石川・金沢歌劇座",
