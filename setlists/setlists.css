@@ -520,39 +520,25 @@ body {
 }
 
 
-/* =========================
-   スマートフォン対応
-========================= */
 
-@media screen and (max-width: 600px) {
-  body {
-    padding: 20px;
-  }
-
-  .live-artist-tab,
-  .year-tab {
-    width: auto;
-  }
-
-  .tour-title-button {
-    padding: 14px;
-    font-size: 16px;
-  }
-
-  .performance-button {
-    padding: 12px 8px;
-    font-size: 15px;
-  }
-
-  .performance-list {
-    padding-right: 5px;
-    padding-left: 5px;
-  }
-
-  .performance-setlist {
-    padding: 12px 10px;
-  }
+/* メドレー内の曲一覧 */
+.medley-song-list {
+  list-style: none;
+  counter-reset: none;
+  margin: 8px 0 8px 1em;
+  padding-left: 0;
 }
+
+.medley-song-list > li {
+  display: block;
+  list-style: none;
+  counter-increment: none;
+}
+
+.medley-song-list > li::before {
+  content: none;
+}
+
 
 /* =========================
    スマートフォン対応
