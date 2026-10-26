@@ -347,10 +347,10 @@ setlistArea.className =
         const medleyItem = document.createElement("li");
         medleyItem.className = "medley-item";
 
-        const medleyName = document.createElement("span");
-        medleyName.className = "performance-song-name";
-        medleyName.textContent =
-          song.medley || "メドレー";
+       const medleyName = document.createElement("span");
+medleyName.className = "performance-song-name";
+medleyName.textContent =
+  `${songNumber}. ${song.medley || "メドレー"}`;
 
         medleyItem.appendChild(medleyName);
 
@@ -358,8 +358,9 @@ setlistArea.className =
         medleyList.className = "medley-song-list";
 
         song.songs.forEach((medleySong, index) => {
-          const subItem = document.createElement("li");
-          subItem.value = index + 1;
+        const subItem = document.createElement("li");
+subItem.style.listStyle = "none";
+subItem.textContent = "";
 
           const songName = Array.isArray(medleySong)
             ? medleySong[0] || ""
