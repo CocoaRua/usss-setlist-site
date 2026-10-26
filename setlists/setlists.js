@@ -19,6 +19,7 @@ function addLiveTour(
   });
 }
 
+
 /*
   別のJSファイルからも確実に呼び出せるようにする
 */
