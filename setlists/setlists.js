@@ -318,6 +318,11 @@ function createPerformanceBlock(performance) {
   /*
     曲一覧
   */
+  const setlistArea =
+  document.createElement("div");
+
+setlistArea.className =
+  "performance-setlist hidden";
  
   if (songs.length === 0) {
     const message = document.createElement("p");
