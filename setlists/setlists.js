@@ -323,6 +323,10 @@ function createPerformanceBlock(performance) {
   /*
     曲一覧
   */
+ 
+  /*
+    曲一覧
+  */
   const setlistArea = document.createElement("div");
   setlistArea.className = "performance-setlist hidden";
 
@@ -334,8 +338,15 @@ function createPerformanceBlock(performance) {
     const songList = document.createElement("ol");
     songList.className = "performance-song-list";
 
+    // 番号はJavaScriptで表示し、HTMLの自動番号を無効にする
+    songList.style.listStyle = "none";
+    songList.style.paddingLeft = "0";
+    songList.style.counterReset = "none";
+
     songs.forEach((song, index) => {
       const songNumber = index + 1;
+      const item = document.createElement("li");
+      item.style.listStyle = "none";
 
       // メドレーの場合
       if (
@@ -344,20 +355,17 @@ function createPerformanceBlock(performance) {
         typeof song === "object" &&
         Array.isArray(song.songs)
       ) {
-        const medleyItem = document.createElement("li");
-        medleyItem.className = "medley-item";
-        medleyItem.value = songNumber;
-
         const medleyName = document.createElement("span");
         medleyName.className = "performance-song-name";
-      medleyName.textContent =
-  song.medley || "メドレー";
+        medleyName.textContent =
+          `${songNumber}. ${song.medley || "メドレー"}`;
 
-        medleyItem.appendChild(medleyName);
+        item.appendChild(medleyName);
 
         const medleyList = document.createElement("ol");
         medleyList.className = "medley-song-list";
         medleyList.style.listStyle = "none";
+        medleyList.style.paddingLeft = "1.5em";
         medleyList.style.counterReset = "none";
 
         song.songs.forEach((medleySong, subIndex) => {
@@ -366,7 +374,8 @@ function createPerformanceBlock(performance) {
 
           const subNumber = document.createElement("span");
           subNumber.className = "medley-song-number";
-         subNumber.textContent = `${songNumber}-${subIndex + 1}. `;
+          subNumber.textContent =
+            `${songNumber}-${subIndex + 1}. `;
 
           const songName = Array.isArray(medleySong)
             ? medleySong[0] || ""
@@ -393,13 +402,9 @@ function createPerformanceBlock(performance) {
           medleyList.appendChild(subItem);
         });
 
-        medleyItem.appendChild(medleyList);
-        songList.appendChild(medleyItem);
+        item.appendChild(medleyList);
       } else {
         // 通常の曲の場合
-        const item = document.createElement("li");
-        item.value = songNumber;
-
         const songName = Array.isArray(song)
           ? song[0] || ""
           : String(song || "");
@@ -410,7 +415,9 @@ function createPerformanceBlock(performance) {
 
         const name = document.createElement("span");
         name.className = "performance-song-name";
-        name.textContent = songName || "曲名未設定";
+        name.textContent =
+          `${songNumber}. ${songName || "曲名未設定"}`;
+
         item.appendChild(name);
 
         if (songNote) {
@@ -419,13 +426,14 @@ function createPerformanceBlock(performance) {
           note.textContent = songNote;
           item.appendChild(note);
         }
-
-        songList.appendChild(item);
       }
+
+      songList.appendChild(item);
     });
 
     setlistArea.appendChild(songList);
   }
+
 
   performanceButton.addEventListener(
     "click",
