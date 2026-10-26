@@ -349,8 +349,8 @@ function createPerformanceBlock(performance) {
 
         const medleyName = document.createElement("span");
         medleyName.className = "performance-song-name";
-        medleyName.textContent =
-          `${songNumber}. ${song.medley || "メドレー"}`;
+      medleyName.textContent =
+  song.medley || "メドレー";
 
         medleyItem.appendChild(medleyName);
 
@@ -365,8 +365,7 @@ function createPerformanceBlock(performance) {
 
           const subNumber = document.createElement("span");
           subNumber.className = "medley-song-number";
-          subNumber.textContent =
-            `${songNumber}-${subIndex + 1}. `;
+         subNumber.textContent = `${songNumber}-${subIndex + 1}. `;
 
           const songName = Array.isArray(medleySong)
             ? medleySong[0] || ""
