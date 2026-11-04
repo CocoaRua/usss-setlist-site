@@ -1076,7 +1076,6 @@ addLiveTour(
   date: "8月5日",
   place: "福岡・DRUM LOGOS・昼の部",
   songs: [
-{
    ]
 },
      {  
