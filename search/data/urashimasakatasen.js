@@ -1,7 +1,7 @@
 addSetlist(
   "浦島坂田船",
   "2016",
-  "浦島坂田船 SUMMER TOUR 2016　-CRUISE PARTY-", [
+  "浦島坂田船 SUMMER TOUR 2016-CRUISE PARTY-", [
     /*完成*/
 ["Pathfinders","浦島坂田船","パスファインダーズ"],
 ["アイドルっぽい曲を作った。","浦島坂田船","アイドルッポイキョクヲツクッタ"],
