@@ -1,7 +1,7 @@
 addLiveTour(
   "センラ",
   "2026",
-  "SENRA LIVE TOUR 2026 Calea -non defective-",
+  "SENRA LIVE TOUR 2026 Calea",
   [
     {
       date: "11月3日",
